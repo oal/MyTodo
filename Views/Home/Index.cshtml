@@ -1,0 +1,15 @@
+@{ ViewData["Title"] = "Home Page"; }
+
+<div id="app">
+
+    <ul class="list-group">
+        <li v-for="todo in todos" class="list-group-item" v-on:click="toggleDone(todo)">
+            <span v-if="!todo.isDone">{{ todo.text }}</span>
+            <s v-else>{{ todo.text }}</s>
+        </li>
+    </ul>
+
+    <input type="text" v-model="newTodo" v-on:keypress.enter="addTodo">
+    <div class="btn btn-primary" v-on:click="addTodo">Lagre todo</div>
+
+</div>
